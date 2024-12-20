@@ -6,7 +6,7 @@
     <div class="data-credit">
       <div class="datas-card">
         <label for="number-card"><p>Número do Cartão</p></label>
-        <input type="number" id="number-card" required>
+        <input type="text" id="number-card" maxlength="16" minlength="16" required (keypress)="validateNumberOnly($event)">
       </div>
       <div class="datas-card">
         <label for="name"><p>Nome do Títular</p></label>
@@ -18,20 +18,15 @@
       </div>
       <div class="datas-card">
         <label for="cvv"><p>CVV</p></label>
-        <input type="number" id="cvv" required>
+        <input type="password" id="cvv" maxlength="3" minlength="3" required (keypress)="validateNumberOnly($event)">
       </div>
     </div>
 
     <div class="data-payment">
       <h3>Dados de Pagamento</h3>
       <label for="installment"><p>Parcelamento</p></label>
-      <select name="installment" id="installment">
-        <option value="">1x</option>
-        <option value="">2x</option>
-        <option value="">3x</option>
-        <option value="">4x</option>
-        <option value="">5x</option>
-        <option value="">6x</option>
+      <select name="installment" id="installment" [(ngModel)]="selectedParcelOption" (ngModelChange)="updateParcel()">
+        <option *ngFor="let parcelOption of parcelOptions" [value]="parcelOption.value">{{parcelOption.display}}</option>
       </select>
     </div>
 </div>

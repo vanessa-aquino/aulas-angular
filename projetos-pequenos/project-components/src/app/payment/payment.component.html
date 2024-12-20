@@ -4,16 +4,17 @@
       <span class="total">
         Valor Total
         <strong class="total-value">
+          {{totalValueStr}}
         </strong>
       </span>
     </div>
 
     <div>
-      <app-payment-ways></app-payment-ways>
+      <app-payment-ways (paymentWayChange)="updatePaymentWay($event)"></app-payment-ways>
     </div>
 
     <div>
-      <app-credit-card></app-credit-card>
+      <app-credit-card (parcelChange)="updateParcel($event)"></app-credit-card>
     </div>
 
   </form>

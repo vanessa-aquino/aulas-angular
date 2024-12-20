@@ -4,6 +4,10 @@
   border-radius: 25px;
 }
 
+.row > span > strong {
+  margin-left: 5px;
+}
+
 .container-fluid {
   display: flex;
   flex-direction: column;
